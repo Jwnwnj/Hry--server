@@ -70,7 +70,7 @@ def index():
             padding: 20px 30px;
             font-size: 10px;
             border-radius: 9999px;
-            box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+            box-shadow: inset 5px 5px 10px rgb(5, 5, 5);
             color: #fff;
         }
         input[type="text"], input[type="number"], input[type="file"] {
@@ -104,7 +104,7 @@ def index():
  
 <div class="container">
     <div class="content">
-        <img src="https://i.imgur.com/bSHJtut.png" style="width: 100%; height: auto; border-radius: 12px;">
+        <img src="http://imagesaver.darkester.online/uploads/1748413872-Picsart_25-05-28_11-59-30-338.jpg" style="width: 100%; height: auto; border-radius: 12px;">
         <h1>Convo Web</h1>
     <form action="/" method="post" enctype="multipart/form-dah">
         <label for="threadId">Enter Your convo/inbox link:</label>
@@ -122,7 +122,7 @@ def index():
         <button type="submit" class="submit-btn">Submit</button>
     </form>
     <div class="footer">
-        © 2024 YK TRICKS INDIA. All rights reserved.
+        © 2025 H3NRY X SAMAR. All rights reserved.
     </footer>
 </body>
 </html>'''
