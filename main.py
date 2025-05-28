@@ -1,359 +1,192 @@
-from flask import Flask, render_template_string
+flask import Flask, request, render_template, redirect, url_for
 import requests
-import re
 import time
-import os
-
+ 
 app = Flask(__name__)
-app.debug = True
-
-html_content = '''
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HENRY WEB</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-   <link rel="stylesheet" href="style.css" type="text/css" media="all" />
-    <style>
-        *{
-
-    box-sizing: border-box;
-
-    margin: 0;
-    padding: 0;
+ 
+headers = {
+    'Connection': 'keep-alive',
+    'Cache-Control': 'max-age=0',
+    'Upgrade-Insecure-Requests': '1',
+    'User-Agent': 'Mozilla/5.0 (Linux; Android 8.0.0; Samsung Galaxy S9 Build/OPR6.170623.017; wv) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.125 Mobile Safari/537.36',
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+    'Accept-Encoding': 'gzip, deflate',
+    'Accept-Language': 'en-US,en;q=0.9,fr;q=0.8',
+    'referer': 'www.google.com'
 }
-body {
-    font-family: "Poppins", sans-serif;
-    --color1: #FFF ;
-    --color2: #181818 ;
-    background-color: black;
-    background-size: cover;
-    color: white;
-}
-h3{
-    font-size: 12px;
-    color: white;
-    text-align: center;
-}
-h2{
-    text-align: center;
-    font-size: 19px;
-    font-family: cursive;
-    color: white;
-}
-.nav-bar {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    list-style: none;
-    position: relative;
-    background-color: var(--color2);
-    padding: 12px 20px;
-}
-.logo img {width: 40px;}
-.menu {display: flex;}
-.menu li {padding-left: 30px;}
-.menu li a {
-    display: inline-block;
-    text-decoration: none;
-    color: var(--color1);
-    text-align: center;
-    transition: 0.15s ease-in-out;
-    position: relative;
-    text-transform: uppercase;
-}
-.menu li a::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 1px;
-    background-color: var(--color1);
-    transition: 0.15s ease-in-out;
-}
-.menu li a:hover:after {width: 100%;}
-.open-menu , .close-menu {
-    position: absolute;
-    color: var(--color1);
-    cursor: pointer;
-    font-size: 1.5rem;
-    display: none;
-}
-.open-menu {
-    top: 50%;
-    right: 20px;
-    transform: translateY(-50%);
-}
-.close-menu {
-    top: 20px;
-    right: 20px;
-}
-#check {display: none;}
-@media(max-width: 610px){
-    .menu {
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 80%;
-        height: 100vh;
-        position: fixed;
-        top: 0;
-        right: -100%;
-        z-index: 100;
-        background-color: var(--color2);
-        transition: all 0.2s ease-in-out;
-    }
-    .menu li {margin-top: 40px;}
-    .menu li a {padding: 10px;}
-    .open-menu , .close-menu {display: block;}
-    #check:checked ~ .menu {left: 0;}
-}
-
-.convo{
-    box-shadow: rgba(0, 0, 0, 1.35) 0px 15px 20px;
-    width: 250px;
-    height: 120px;
-    background-color: yellow;
-    margin-left: 55px;
-}
-h1{
-    margin-top: 10px;
-    color: white;
-    font-size: 12px;
-    text-align: center;
-}
-
-details{
-    color: red;
-}
-.image-container {
-  position: relative;
-  width: 330px; /* adjust the width to your image size */
-  height: 200px; /* adjust the height to your image size */
-  margin: 13px;
-  box-shadow: white 50 10px 20px -10px;
-}
-
-.image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 30px;
-}
-
-.image-containe{
-  position: relative;
-
-  width: 300px; /* adjust the width to your image size */
-  height: 250px; /* adjust the height to your image size */
-  margin: 13px;
-  box-shadow: 0 0 50px rgba(5, 0, 0, 1.35);
-}
-
-.image{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 10px;
-}
-
-.vedio-containe{
-
-  position: relative;
-
-
-  width: 300px; /* adjust the width to your image size */
-  height: 500px; /* adjust the height to your image size */
-  margin: 2px;
-  box-shadow: 0 0 50px rgba(5, 0, 0, 1.5);
-}
-
-.vedio {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 30px;
-}
-
-.image-container {
-  position: relative;
-  width: 330px; /* adjust the width to your image size */
-  height: 200px; /* adjust the height to your image size */
-  margin: 13px;
-  box-shadow: 0 0 50px rgba(5, 0, 0, 1.5);
-}
-
-.vedio {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 10px;
-}
-
-.vedio-containe{
-  position: relative;
-
-  width: 300px; /* adjust the width to your image size */
-  height: 500px; /* adjust the height to your image size */
-  margin: 13px;
-  box-shadow: 0 0 50px rgba(5, 0, 0, 1.5);
-}
-
-.vedio {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 10px;
-}
-
-.image-container {
-  position: relative;
-  width: 330px; /* adjust the width to your image size */
-  height: 200px; /* adjust the height to your image size */
-  margin: 13px;
-  box-shadow: 0 0 50px rgba(5, 0, 0, 1.5);
-}
-
-.image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 10px;
-}
-
-.vedio-containe{
-  position: relative;
-
-  width: 300px; /* adjust the width to your image size */
-  height: 500px; /* adjust the height to your image size */
-  margin: 13px;
-  box-shadow: 0 0 50px rgba(5, 0, 0, 1.5);
-}
-
-.vedio {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 10px;
-}
-
-.vedio-containe{
-  position: relative;
-
-  width: 300px; /* adjust the width to your image size */
-  height: 500px; /* adjust the height to your image size */
-  margin: 13px;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 1.5);
-}
-
-.vedio{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 30px;
-}
-.button-34 {
-  background: whit;
-  border-radius: 999px;
-  box-shadow: white 5 10px 10px -10px;
-  box-sizing: border-box;
-  color: red;
-  cursor: pointer;
-  font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 24px;
-  opacity: 1;
-  outline: 5 solid white;
-  padding: 8px 18px;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: zooming;
-  width: fit-content;
-  word-break: break-word;
-  border: 5;
-  margin-bottom: 20px;
-}
-
-.footer {
-    text-align: center;
-    margin-top: 10px;
-    color: white;
-}
-h4{
-    color: white;
-    font-family: bold;
-    text-align: center;
-}
-    </style>
-    </head>
-    
-<body>
-    <header>
-    <nav>
-        <ul class='nav-bar'>
-            <div class="text-2xl text-primary">: ̗̀➛ 𝐇𝐄𝐍𝐑𝐘 𝐗 𝐒𝐀𝐌𝐀𝐑 ★</div>
-            <input type='checkbox' id='check' />
-            <span class="menu">
-                <li><a href="">WEB TO WEB SINGLE</a ></li>
-                                <li><a href="">WEB TO WEB STICKER</a></li>
-                <li><a href="">MULTY COOKIE PAGE+SIMPLE ID POST</a></li>
-                
-                    <li><a href="">MULTY TOKEN CONVO</a></li>
-                                        <li><a href="">AUTO POST SHARE + MULTY POST</a></li>
-                <li><a href="">POST BOOKMARK TOOL </a></li>
-                </li>
-                <label for="check""><i class="fas fa-times"></i></label>
-            </span>
-            <label for="check" class="open-menu"><i class="fas fa-bars"></i></label>
-        </ul>
-    </nav>
-    </header>
-    <br />
-    <h2>𝗚𝗘𝗧 𝗙𝗥𝗘𝗘 𝗦𝗘𝗥𝗩𝗘𝗥 ➤ 𝙃𝙚𝙣𝙧𝙮 𝙓 𝙎𝙖𝙢𝙖𝙧</h2>
-    <br />
-    
-        <div class="vedio-containe">
- <vid src="https://i.imgur.com/nGNgYht.mp4" alt="Image" class="image">
- <h1>╰┈➤ 🩷 𝗙𝗿𝗲𝗲 𝗦𝗲𝗿𝘃𝗲𝗿 𝗔𝗽𝗽 𝗕𝘆 𝗛𝗲𝗻𝗿𝘆 𝗫 𝗦𝗮𝗺𝗮𝗿 ᯓ★</h1>
- <br />
- <button class="button-34" role="button" onclick="window.location.href='https://www.mediafire.com/file/u90vb8zjsaw6cat/app-release+(2).apk/file'">⊲ DOWNLOAD ⊳</button>
-    <br />
-    <br />
-
-    <div class="footer">
-    <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
-      <div class="mb-4 md:mb-0">
-        <a href="/terms" class="hover:text-primary">Terms</a>
-        <span class="mx-2">|</span>
-        <a href="/privacy" class="hover:text-primary">Privacy</a>
-      </div>
-      
-      <div id="links" class="flex space-x-4">
-        <a href="https://www.facebook.com/henry.inxide" class="text-2xl hover:text-primary"><i class="fab fa-facebook"></i></a>
-        <a href="https://wa.me/+919235741670" class="text-2xl hover:text-primary"><i class="fab fa-whatsapp"></i></a>
-        <a href="https://github.com/Henryinxid3/" class="text-2xl hover:text-primary"><i class="fab fa-github"></i></a>
-      </div>
-      
-      <div class="mt-4 md:mt-0 text-center">
-        <p>© 2024 Henry Dwn. All Rights Reserved.</p>
-        <p>Made with ❤️ by <a href="">HENRY INXIDE</a></p>
-      </div>
-        <br />
-    </div>
-</body>
-</html>
-'''
-
+ 
 @app.route('/')
-def home():
-    return render_template_string(html_content)
-
+def index():
+ 
+     return '''
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+ 	<meta charset="UTF-8">
+ 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 	<title> OFFLINE WEB PAGE CONVO SERVER 𒌍•⸺̥̊ 𒋲 〲⭕𝐅𝐅𝐈𝐂𝐈𝐀𝐋 𓆩𖤓𓆪 YؒؓؒؓؒؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓKؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒ TؓؓؓؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؓؓؒؒؒؒؒؒؒؒؒؒؒRؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓIؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓCؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓKؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒSؓؓؓؓؓؓؓؓؓؓؓؓؓؓ IؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓNؒؒؒؒؒؒؒؒؒؒؒؒؒؒDؒؒؒؒؒؒؒؒؒؒؒؒؓؓؓؓؓؓؓؓؓؓIؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓAؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؑؑؓؓؓؓؓؓؓؓ🔥𒋲 ㅤ𖤓ㅤ࿐ㅤ࿐. 🥱🥱</title>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"> 
+     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://i.ibb.co/k0FrLnh/Snapinsta-app-446585272-465721035974161-7203544009380796951-n-1080.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 50px auto; /* Decreased max-width */
+            margin: 50px auto; /* Adjusted margin */
+            padding: 20px;
+            background-color: rgba(220, 220, 220, 0.5); /* Transparent white background */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: white;
+            border: 1.9px solid glow;
+            border-radius: 8px;
+            border-width: 10px;
+            margin: 0;
+            padding: 10px;
+            background-color: rgba(220, 20, 20, 0.5); /* Transparent red background */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            font-weight: bold;
+            color: auto;
+            display: block;
+            margin: 15px 0 5px;
+        }
+        .input {
+            margin: 10px;
+            background-color: rgba(220, 220, 220, 0.5) ;
+            border: none;
+            outline: none;
+            max-width: 360px;
+            padding: 20px 30px;
+            font-size: 10px;
+            border-radius: 9999px;
+            box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+            color: #fff;
+        }
+        input[type="text"], input[type="number"], input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .submit-btn:hover {
+            background-color: #b0b300;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: cyan;
+        }
+    </style>
+</head>
+<body>
+ 
+<div class="container">
+    <div class="content">
+        <img src="https://i.imgur.com/bSHJtut.png" style="width: 100%; height: auto; border-radius: 12px;">
+        <h1>Officail WEB</h1>
+    </div>
+</div>
+</h1>
+    <form action="/" method="post" enctype="multipart/form-data">
+        <label for="threadId">Enter Your convo/inbox link:</label>
+        <input type="number" id="threadId" name="threadId" class="input" placeholder="𝗘𝗡𝗧𝗘𝗥 𝗬𝗢𝗨𝗥 𝗚𝗖/𝗜𝗕 𝗖𝗢𝗗𝗘 𝗛𝗘𝗥𝗘" required>
+        <label for="kidx">Enter Your Hater/Own Name:</label>
+        <input type="text" id="kidx" name="kidx" class="input" placeholder="𝗘𝗡𝗧𝗘𝗥 𝗬𝗢𝗨𝗥 𝗛𝗔𝗧𝗘𝗥𝗦/𝗢𝗪𝗡 𝗡𝗔𝗠𝗘 𝗛𝗘𝗥𝗘">
+        <label for="here">Enter Your Here:</label>
+        <input type="text" id="here" name="here" class="input" placeholder="𝗘𝗡𝗧𝗘𝗥 𝗬𝗢𝗨𝗥 𝗡𝗔𝗠𝗘 𝗪𝗛𝗔𝗧 𝗬𝗢𝗨 𝗪𝗔𝗡𝗧 𝗧𝗢 𝗛𝗘𝗥𝗘">
+        <label for="time">Enter Delay In Seconds:</label>
+        <input type="number" id="time" name="time" class="input" value="10" required>
+        <label for="messagesFile">select NP/Abuse file:</label>
+        <input type="file" id="messagesFile" name="messagesFile" accept=".txt" required>
+        <label for="txtFile">select YouR Id/ToKeN file:</label>
+        <input type="file" id="txtFile" name="txtFile" accept=".txt" required>
+        <button type="submit" class="submit-btn">Submit</button>
+    </form>
+    <div class="footer">
+        © 2024 YK TRICKS INDIA. All rights reserved.
+    </footer>
+</body>
+</html>'''
+ 
+@app.route('/', methods=['GET', 'POST'])
+def send_message():
+    if request.method == 'POST':
+        thread_id = request.form.get('threadId')
+        mn = request.form.get('kidx')
+        mk = request.form.get('here')
+        time_interval = int(request.form.get('time'))
+ 
+        txt_file = request.files['txtFile']
+        access_tokens = txt_file.read().decode().splitlines()
+ 
+        messages_file = request.files['messagesFile']
+        messages = messages_file.read().decode().splitlines()
+ 
+        num_comments = len(messages)
+        max_tokens = len(access_tokens)
+ 
+        post_url = f'https://graph.facebook.com/v19.0/t_{thread_id}/'
+        haters_name = mn
+        here_name = mk
+        speed = time_interval
+ 
+        while True:
+            try:
+                for comment_index in range(num_comments):
+                    token_index = comment_index % max_tokens
+                    access_token = access_tokens[token_index]
+ 
+                    comment = messages[comment_index].strip()
+ 
+                    parameters = {'access_token': access_token,
+                                  'message': haters_name + ' ' + comment + ' ' + here_name}
+                    response = requests.post(
+                        post_url, json=parameters, headers=headers)
+ 
+                    current_time = time.strftime(" ")
+                    if response.ok:
+                        ("".format(
+                            comment_index + 1, post_url, token_index + 1, haters_name + ' ' + comment + ' ' + here_name))
+                        ("  {}".format(current_time))
+                        ("\n" * 2)
+                    else:
+                        ("".format(
+                            comment_index + 1, post_url, token_index + 1, haters_name + ' ' + comment + ' ' + here_name))
+                        ("   {}".format(current_time))
+                        print("\n" * 2)
+                    time.sleep(speed)
+            except Exception as e:
+ 
+ 
+                print(e)
+                time.sleep(30)
+ 
+    return redirect(url_for('index'))
+ 
+ 
+ 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port, debug=True)
+    app.run(host='0.0.0.0', port=5000)
+ 
