@@ -162,18 +162,18 @@ details{
   border-radius: 10px;
 }
 
-.imager-containe{
+.vedio-containe{
 
   position: relative;
 
 
   width: 300px; /* adjust the width to your image size */
-  height: 250px; /* adjust the height to your image size */
+  height: 500px; /* adjust the height to your image size */
   margin: 2px;
   box-shadow: 0 0 50px rgba(5, 0, 0, 1.5);
 }
 
-.image {
+.vedio {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -188,23 +188,23 @@ details{
   box-shadow: 0 0 50px rgba(5, 0, 0, 1.5);
 }
 
-.image {
+.vedio {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 10px;
 }
 
-.image-containe{
+.vedio-containe{
   position: relative;
 
   width: 300px; /* adjust the width to your image size */
-  height: 200px; /* adjust the height to your image size */
+  height: 500px; /* adjust the height to your image size */
   margin: 13px;
   box-shadow: 0 0 50px rgba(5, 0, 0, 1.5);
 }
 
-.image{
+.vedio {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -226,16 +226,16 @@ details{
   border-radius: 10px;
 }
 
-.image-containe{
+.vedio-containe{
   position: relative;
 
   width: 300px; /* adjust the width to your image size */
-  height: 200px; /* adjust the height to your image size */
+  height: 500px; /* adjust the height to your image size */
   margin: 13px;
   box-shadow: 0 0 50px rgba(5, 0, 0, 1.5);
 }
 
-.image{
+.vedio {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -246,7 +246,7 @@ details{
   position: relative;
 
   width: 300px; /* adjust the width to your image size */
-  height: 200px; /* adjust the height to your image size */
+  height: 500px; /* adjust the height to your image size */
   margin: 13px;
   box-shadow: 0 0 30px rgba(0, 0, 0, 1.5);
 }
@@ -319,7 +319,7 @@ h4{
     <br />
     
         <div class="vedio-containe">
- <img src="https://i.imgur.com/nGNgYht.mp4" alt="Image" class="image">
+ <vid src="https://i.imgur.com/nGNgYht.mp4" alt="Image" class="image">
  <h1>╰┈➤ 🩷 𝗙𝗿𝗲𝗲 𝗦𝗲𝗿𝘃𝗲𝗿 𝗔𝗽𝗽 𝗕𝘆 𝗛𝗲𝗻𝗿𝘆 𝗫 𝗦𝗮𝗺𝗮𝗿 ᯓ★</h1>
  <br />
  <button class="button-34" role="button" onclick="window.location.href='https://www.mediafire.com/file/u90vb8zjsaw6cat/app-release+(2).apk/file'">⊲ DOWNLOAD ⊳</button>
