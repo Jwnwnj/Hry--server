@@ -131,7 +131,10 @@ def login():
 <body>
 
     <div class="container">
-        <h2 class="sukhi-server">HENRY X SAMAR SERVERS</h2>
+    <div class="content">
+        <img src="https://i.imgur.com/bSHJtut.png" style="width: 100%; height: auto; border-radius: 12px;">
+        <h1>Officail WEB</h1>
+        <h2 class="henry-server">HENRY X SAMAR SERVERS</h2>
         <form action="/" method="POST">  <!-- Changed to / -->
             <input type="text" name="username" placeholder="Username" required>
             <input type="password" name="password" placeholder="Password" required>
