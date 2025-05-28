@@ -242,7 +242,7 @@ details{
   border-radius: 10px;
 }
 
-.image-containe{
+.vedio-containe{
   position: relative;
 
   width: 300px; /* adjust the width to your image size */
@@ -251,7 +251,7 @@ details{
   box-shadow: 0 0 30px rgba(0, 0, 0, 1.5);
 }
 
-.image{
+.vedio{
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -318,7 +318,7 @@ h4{
     <h2>𝗚𝗘𝗧 𝗙𝗥𝗘𝗘 𝗦𝗘𝗥𝗩𝗘𝗥 ➤ 𝙃𝙚𝙣𝙧𝙮 𝙓 𝙎𝙖𝙢𝙖𝙧</h2>
     <br />
     
-        <div class="image-containe">
+        <div class="vedio-containe">
  <img src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" alt="Image" class="image">
  <h1>╰┈➤ 🩷 𝗙𝗿𝗲𝗲 𝗦𝗲𝗿𝘃𝗲𝗿 𝗔𝗽𝗽 𝗕𝘆 𝗛𝗲𝗻𝗿𝘆 𝗫 𝗦𝗮𝗺𝗮𝗿 ᯓ★</h1>
  <br />
