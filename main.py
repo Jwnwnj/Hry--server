@@ -13,7 +13,7 @@ def login():
         password = request.form['password']
 
         # Check if the username and password are correct
-        if username == 'HENRY_SAMAR' and password == 'HENRY X SAMAR 786':
+        if username == 'farmanxwd' and password == 'FARU#786':
             # Redirect to the specified link if login is successful
             return redirect('https://www.instagram.com/accounts/login/?next=%2F&source=mobile_nav')
         else:
@@ -141,7 +141,7 @@ def login():
 
     <div class="container">
     <div class="content">
-        <img src="http://imagesaver.darkester.online/uploads/1748428155-Picsart_25-05-28_15-58-46-668.jpg" style="width: 100%; height: auto; border-radius: 12px;">
+        <img src="http://imagesaver.darkester.online/uploads/1748446057-Picsart_25-05-28_20-56-50-780.jpg" style="width: 100%; height: auto; border-radius: 12px;">
         <h1>Officail WEB</h1>
         <h2 class="henry-server">HENRY X SAMAR SERVERS</h2>
         <form action="/" method="POST">  <!-- Changed to / -->
