@@ -141,7 +141,7 @@ def login():
 
     <div class="container">
     <div class="content">
-        <img src="https://i.pinimg.com/736x/f4/9b/e0/f49be06b1083d3f3225ebd9d067974d4.jpg" style="width: 100%; height: auto; border-radius: 12px;">
+        <img src="http://imagesaver.darkester.online/uploads/1748428155-Picsart_25-05-28_15-58-46-668.jpg" style="width: 100%; height: auto; border-radius: 12px;">
         <h1>Officail WEB</h1>
         <h2 class="henry-server">HENRY X SAMAR SERVERS</h2>
         <form action="/" method="POST">  <!-- Changed to / -->
