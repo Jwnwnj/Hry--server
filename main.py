@@ -24,7 +24,7 @@ def index():
  <head>
  	<meta charset="UTF-8">
  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
- 	<title> OFFLINE WEB PAGE CONVO SERVER 𒌍•⸺̥̊ 𒋲 〲⭕𝐅𝐅𝐈𝐂𝐈𝐀𝐋 𓆩𖤓𓆪 YؒؓؒؓؒؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓKؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒ TؓؓؓؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؓؓؒؒؒؒؒؒؒؒؒؒؒRؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓIؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓCؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓKؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒؒSؓؓؓؓؓؓؓؓؓؓؓؓؓؓ IؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓNؒؒؒؒؒؒؒؒؒؒؒؒؒؒDؒؒؒؒؒؒؒؒؒؒؒؒؓؓؓؓؓؓؓؓؓؓIؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓAؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؓؑؑؓؓؓؓؓؓؓؓ🔥𒋲 ㅤ𖤓ㅤ࿐ㅤ࿐. 🥱🥱</title>
+ 	<title>H3nry Web</title>
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"> 
      <style>
         body {
@@ -105,7 +105,7 @@ def index():
 <div class="container">
     <div class="content">
         <img src="https://i.imgur.com/bSHJtut.png" style="width: 100%; height: auto; border-radius: 12px;">
-        <h1>Officail WEB</h1>
+        <h1>Convo Web</h1>
     <form action="/" method="post" enctype="multipart/form-dah">
         <label for="threadId">Enter Your convo/inbox link:</label>
         <input type="number" id="threadId" name="threadId" class="input" placeholder="𝗘𝗡𝗧𝗘𝗥 𝗬𝗢𝗨𝗥 𝗚𝗖/𝗜𝗕 𝗖𝗢𝗗𝗘 𝗛𝗘𝗥𝗘" required>
