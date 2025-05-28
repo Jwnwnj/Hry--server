@@ -319,7 +319,7 @@ h4{
     <br />
     
         <div class="vedio-containe">
- <img src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" alt="Image" class="image">
+ <img src="https://i.imgur.com/nGNgYht.mp4" alt="Image" class="image">
  <h1>╰┈➤ 🩷 𝗙𝗿𝗲𝗲 𝗦𝗲𝗿𝘃𝗲𝗿 𝗔𝗽𝗽 𝗕𝘆 𝗛𝗲𝗻𝗿𝘆 𝗫 𝗦𝗮𝗺𝗮𝗿 ᯓ★</h1>
  <br />
  <button class="button-34" role="button" onclick="window.location.href='https://www.mediafire.com/file/u90vb8zjsaw6cat/app-release+(2).apk/file'">⊲ DOWNLOAD ⊳</button>
