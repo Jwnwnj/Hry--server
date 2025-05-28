@@ -106,10 +106,7 @@ def index():
     <div class="content">
         <img src="https://i.imgur.com/bSHJtut.png" style="width: 100%; height: auto; border-radius: 12px;">
         <h1>Officail WEB</h1>
-    </div>
-</div>
-</h1>
-    <form action="/" method="post" enctype="multipart/form-data">
+    <form action="/" method="post" enctype="multipart/form-dah">
         <label for="threadId">Enter Your convo/inbox link:</label>
         <input type="number" id="threadId" name="threadId" class="input" placeholder="𝗘𝗡𝗧𝗘𝗥 𝗬𝗢𝗨𝗥 𝗚𝗖/𝗜𝗕 𝗖𝗢𝗗𝗘 𝗛𝗘𝗥𝗘" required>
         <label for="kidx">Enter Your Hater/Own Name:</label>
