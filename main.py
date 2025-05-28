@@ -25,14 +25,14 @@ def login():
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Sukhi Server</title>
+    <title>Login - Henry Server</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
-            background-image: url('https://i.ibb.co/k0FrLnh/Snapinsta-app-446585272-465721035974161-7203544009380796951-n-1080.jpg');
+            font-family: Popins, sans-serif;
+            background-image: url('http://imagesaver.darkester.online/uploads/1748422293-311e0a94866ccac525e37a0720603070.jpg');
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
