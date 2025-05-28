@@ -58,52 +58,86 @@ def login():
             background-color: rgba(220, 20, 20, 0.5); /* Transparent red background */
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        label {
-            font-weight: bold;
-            color: auto;
-            display: block;
-            margin: 15px 0 5px;
+        h2 {
+            color: #fff;
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px #000;
         }
-        .input {
-            margin: 10px;
-            background-color: rgba(220, 220, 220, 0.5) ;
-            border: none;
-            outline: none;
-            max-width: 360px;
-            padding: 20px 30px;
-            font-size: 10px;
-            border-radius: 9999px;
-            box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+
+        /* Blinking Sukhi Server heading */
+        .sukhi-server {
+            font-size: 32px;
+            color: #ff5e5e;
+            animation: blink 1.5s infinite;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        @keyframes blink {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        form {
+        display: flex;
+        flex-direction: column; /* Arrange children in a column */
+        align-items: center;    /* Center items horizontally */
+        }
+        
+        button {
+        width: auto;            /* Change to auto for centered width */
+        padding: 12px 20px;     /* Adjust padding for better appearance */
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        border-radius: 8px;
+        margin-top: 15px;
+        font-weight: bold;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .admin-contact {
+            margin-top: 20px;
             color: #fff;
         }
-        input[type="text"], input[type="number"], input[type="file"] {
-            width: 100%;
-            padding: 10px;
-            margin: 5px 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+
+        .admin-contact a {
+            color: #00ff00;
+            font-weight: bold;
+            text-decoration: none;
         }
-        .submit-btn {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .submit-btn:hover {
-            background-color: #b0b300;
-        }
-        .footer {
-            text-align: center;
-            margin-top: 20px;
-            color: cyan;
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
+
 
     <div class="container">
     <div class="content">
