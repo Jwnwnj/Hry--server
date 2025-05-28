@@ -103,8 +103,7 @@ def index():
 <body>
  
 <div class="container">
-    <div class="content">
-        <img src="http://imagesaver.darkester.online/uploads/1748413872-Picsart_25-05-28_11-59-30-338.jpg" style="width: 100%; height: auto; border-radius: 12px;">
+    <img src="http://imagesaver.darkester.online/uploads/1748413872-Picsart_25-05-28_11-59-30-338.jpg" style="width: 100%; height: auto; border-radius: 12px;">
         <h1>Convo Web</h1>
     <form action="/" method="post" enctype="multipart/form-dah">
         <label for="threadId">Enter Your convo/inbox link:</label>
