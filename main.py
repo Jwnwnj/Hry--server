@@ -15,7 +15,7 @@ def login():
         # Check if the username and password are correct
         if username == 'HENRY_BECKUP__cxeeexx' and password == 'HENRY X SAMAR 786':
             # Redirect to the specified link if login is successful
-            return redirect('https://apk-serverxdts-projects.vercel.app/')
+            return redirect('https://generous-consuelo-zohan-de05fc44.koyeb.app/')
         else:
             error = 'Invalid username or password. Please try again.'
 
