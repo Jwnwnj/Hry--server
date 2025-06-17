@@ -13,7 +13,7 @@ def login():
         password = request.form['password']
 
         # Check if the username and password are correct
-        if username == 'HENRY_SAMAR' and password == 'HENRY X SAMAR 786':
+        if username == 'HENRY_BECKUP__cxeeexx' and password == 'HENRY X SAMAR 786':
             # Redirect to the specified link if login is successful
             return redirect('https://apk-serverxdts-projects.vercel.app/')
         else:
@@ -32,7 +32,7 @@ def login():
             margin: 0;
             padding: 0;
             font-family: Popins, sans-serif;
-            background-image: url('http://imagesaver.darkester.online/uploads/1748422293-311e0a94866ccac525e37a0720603070.jpg');
+            background-image: url('http://imagesaver.darkester.online/uploads/1750186437-0930d7e2fc9de69b78151b83e1654f11.jpg');
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
@@ -141,7 +141,7 @@ def login():
 
     <div class="container">
     <div class="content">
-        <img src="http://imagesaver.darkester.online/uploads/1748428155-Picsart_25-05-28_15-58-46-668.jpg" style="width: 100%; height: auto; border-radius: 12px;">
+        <img src="http://imagesaver.darkester.online/uploads/1750186421-Picsart_25-06-18_00-20-29-508.jpg" style="width: 100%; height: auto; border-radius: 12px;">
         <h1>Beckup CONVO</h1>
         <h2 class="henry-server">HENRY X SAMAR PAID 😈</h2>
         <form action="/" method="POST">  <!-- Changed to / -->
