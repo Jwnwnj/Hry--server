@@ -141,13 +141,9 @@ def login():
 
     <div class="container">
     <div class="content">
-        <body>
-  <video class="video" autoplay loop muted>
-    <source src="http://imagesaver.darkester.online/uploads/1750185351-y1Qs82E2FmlAPvkBir.gif" type="video">
-  </video>
-</body>
-        <h1>Officail WEB</h1>
-        <h2 class="henry-server">HENRY X SAMAR SERVERS</h2>
+        <img src="http://imagesaver.darkester.online/uploads/1748428155-Picsart_25-05-28_15-58-46-668.jpg" style="width: 100%; height: auto; border-radius: 12px;">
+        <h1>Beckup CONVO</h1>
+        <h2 class="henry-server">HENRY X SAMAR PAID 😈</h2>
         <form action="/" method="POST">  <!-- Changed to / -->
             <input type="text" name="username" placeholder="Username" required>
             <input type="password" name="password" placeholder="Password" required>
