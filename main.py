@@ -143,7 +143,7 @@ def login():
     <div class="content">
         <body>
   <video class="video" autoplay loop muted>
-    <source src="https://i.imgur.com/fGLKxjH.gif" type="video">
+    <source src="http://imagesaver.darkester.online/uploads/1750185351-y1Qs82E2FmlAPvkBir.gif" type="video">
   </video>
 </body>
         <h1>Officail WEB</h1>
