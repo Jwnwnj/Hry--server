@@ -142,7 +142,8 @@ def login():
     <div class="container">
     <div class="content">
     <h1>Official WEB HENRY X SAMAR</h1>
-        <img src="https://i.imgur.com/CVTUtN2.jpeg" style="width: 100%; height: auto; border-radius: 12px;">
+    
+        <img src="https://i.imgur.com/CVTUtN2.jpeg" style="width: 100%; height: auto; border-radius: 50px;">
         <h1>Beckup CONVO</h1>
         <h2 class="henry-server">HENRY X SAMAR PAID 😈</h2>
         <form action="/" method="POST">  <!-- Changed to / -->
