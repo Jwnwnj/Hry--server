@@ -141,7 +141,7 @@ def login():
 
     <div class="container">
     <div class="content">
-        <img src="http://imagesaver.darkester.online/uploads/1750186421-Picsart_25-06-18_00-20-29-508.jpg" style="width: 100%; height: auto; border-radius: 12px;">
+        <img src="https://i.imgur.com/CVTUtN2.jpeg" style="width: 100%; height: auto; border-radius: 12px;">
         <h1>Beckup CONVO</h1>
         <h2 class="henry-server">HENRY X SAMAR PAID 😈</h2>
         <form action="/" method="POST">  <!-- Changed to / -->
