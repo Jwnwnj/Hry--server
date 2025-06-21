@@ -32,7 +32,7 @@ def login():
             margin: 0;
             padding: 0;
             font-family: Popins, sans-serif;
-            background-image: url('http://imagesaver.darkester.online/uploads/1750186437-0930d7e2fc9de69b78151b83e1654f11.jpg');
+            background-image: url('https://i.imgur.com/0pjiKK8.jpeg');
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
@@ -141,6 +141,7 @@ def login():
 
     <div class="container">
     <div class="content">
+    <h1>Official WEB HENRY X SAMAR</h1>
         <img src="https://i.imgur.com/CVTUtN2.jpeg" style="width: 100%; height: auto; border-radius: 12px;">
         <h1>Beckup CONVO</h1>
         <h2 class="henry-server">HENRY X SAMAR PAID 😈</h2>
